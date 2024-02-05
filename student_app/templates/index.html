@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Student</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  </head>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'student_app:list' %}">Student Database</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <body>
+    <br>
+    {% block body_block %}
+        <h1>Welcome</h1>
+    {% endblock %}
+  </body>
+
+</html>

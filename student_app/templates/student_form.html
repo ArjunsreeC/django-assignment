@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block body_block %}
+
+<h2>
+  {% if not form.instance.pk %}
+  Add new student
+  {% else %}
+  Edit Student
+  {% endif %}
+</h2>
+<br>
+<div class="container" id="formout">
+  <div class="jumbotron" id="formin">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br>
+      <input id="submit" type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+{% endblock %}

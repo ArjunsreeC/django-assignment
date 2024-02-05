@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block body_block %}
+
+  <h1>Student List</h1>
+    <div class="container" id="add">
+      <a href="{% url 'student_app:create' %}">Add New Student</a>
+    </div>
+    <br>
+    {% if student_list %}
+    <div class="container">
+    <table class="table table-bordereds table-responsive table-hover" id="data">
+      <tr>
+        <th>RegNo</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for student in student_list %}
+        <tr>
+          <td>{{student.regno}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.email}}</td>
+          <td><a href="{% url 'student_app:update' pk=student.pk %}">Edit</a></td>
+          <td><a href="{% url 'student_app:delete' pk=student.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% endif %}
+
+{% endblock %}

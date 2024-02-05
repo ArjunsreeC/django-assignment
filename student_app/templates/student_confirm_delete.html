@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block body_block %}
+
+<h2>Delete student ?</h2>
+<br>
+<div class="container" id="formout">
+  <div class="jumbotron" id="formin">
+    <form method="POST">
+      {% csrf_token %}
+      <br>
+      <input id="submit" type="submit" value="Delete">
+      <br><br>
+      <a class="btn btn-danger" href="{% url 'student_app:list' %}" id="close">Cancel</a>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
